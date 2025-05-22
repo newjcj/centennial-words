@@ -362,7 +362,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     (async () => {
       try {
         // 构建测试请求URL
-        const testRequestUrl = apiEndpoint || "https://qianfan.baidubce.com/v2/chat/completions";
+        const currentApiEndpoint = request.apiEndpoint || 'https://qianfan.baidubce.com/v2/';
+        const testRequestUrl = currentApiEndpoint.endsWith('/') ?
+            `${currentApiEndpoint}chat/completions` :
+            `${currentApiEndpoint}/chat/completions`;
         
         const testBody = {
           model: "ernie-4.5-turbo-32k",

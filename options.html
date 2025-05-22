@@ -130,6 +130,23 @@
     <input type="file" id="importFile" accept=".json" style="display: none;">
     
     <div id="status" class="status"></div>
+
+    <hr style="margin-top: 30px; margin-bottom: 30px;">
+
+    <h3>历史记录 JSON 编辑器</h3>
+    <textarea id="jsonHistoryEditor" rows="15" style="width: calc(100% - 22px); margin-bottom: 10px;"></textarea>
+    
+    <div class="button-group">
+      <button id="loadHistoryToEditor" class="button">加载当前历史记录</button>
+      <button id="formatJsonInEditor" class="button">格式化JSON</button>
+      <button id="saveHistoryFromEditor" class="button">保存编辑器中的历史记录</button>
+    </div>
+
+    <div style="margin-top: 15px; display: flex; align-items: center;">
+      <label for="jsonSearchQuery" style="margin-right: 5px; font-weight: bold;">搜索:</label>
+      <input type="text" id="jsonSearchQuery" style="margin-right: 5px; width: auto; flex-grow: 1; margin-bottom: 0;">
+      <button id="searchJsonInEditor" class="button" style="margin-right: 0;">执行搜索</button>
+    </div>
     
     <div class="note">
       <strong>注意:</strong> 如果遇到"Failed to fetch"错误，请检查：

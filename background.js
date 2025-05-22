@@ -338,6 +338,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     sendResponse({ received: true });
     return true;
   }
+
+  if (request.type === "UPDATE_HISTORY") {
+    if (request.history && Array.isArray(request.history)) {
+      chrome.storage.local.set({ history: request.history }, () => {
+        if (chrome.runtime.lastError) {
+          console.error("Error saving updated history:", chrome.runtime.lastError);
+          sendResponse({ success: false, error: chrome.runtime.lastError.message });
+        } else {
+          sendResponse({ success: true });
+        }
+      });
+    } else {
+      sendResponse({ success: false, error: "Invalid history data provided." });
+    }
+    return true; // Asynchronous response
+  }
   
   if (request.type === "TEST_API_CONNECTION") {
     const { apiKey, apiEndpoint } = request;

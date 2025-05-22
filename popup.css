@@ -1,0 +1,313 @@
+/* popup.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 380px; /* 设定一个合适的宽度 */
+  max-height: 500px; /* 设定最大高度，超出则滚动 */
+  overflow-y: auto;
+}
+
+.container {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 18px;
+  color: #2c3e50;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+#historyControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#clearHistory {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+#clearHistory:hover {
+  background-color: #c0392b;
+}
+
+#historyList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#historyList li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  font-size: 14px;
+}
+
+#historyList li strong {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.translation-text {
+  margin-top: 4px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+  word-wrap: break-word; /* 允许长单词换行 */
+}
+
+.time-ago {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+}
+
+#noHistory {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px dashed #ddd;
+  border-radius: 5px;
+}
+
+/* 滚动条美化 (可选) */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* Tab Styles */
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #555;
+  border-bottom: 2px solid transparent; /* For active state */
+  margin-right: 5px;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #3498db;
+}
+
+.tab-button.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+  font-weight: 600;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Settings Form Styles */
+.settings-form {
+  padding: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group textarea {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+#saveSettings {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: block; /* Make it full width or adjust as needed */
+  width: 100%;
+  margin-top: 10px;
+}
+
+#saveSettings:hover {
+  background-color: #27ae60;
+}
+
+.status-message {
+  margin-top: 10px;
+  font-size: 13px;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: #e6ffed;
+  border: 1px solid #b7eb8f;
+  color: #52c41a;
+}
+
+.status-message.error {
+  background-color: #fff1f0;
+  border: 1px solid #ffa39e;
+  color: #f5222d;
+}
+
+/* 历史记录的控制区域 */
+#historyControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+}
+
+.sort-label {
+  font-size: 12px;
+  margin-right: 5px;
+  color: #555;
+}
+
+.sort-select {
+  font-size: 12px;
+  padding: 3px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+}
+
+/* 重复次数的样式 */
+.repeat-count {
+  font-size: 11px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 详情按钮样式 */
+.detail-button {
+  font-size: 10px;
+  padding: 2px 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 5px;
+  color: #555;
+}
+
+.detail-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* 详情面板样式 */
+.timestamps-details {
+  display: none;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.timestamps-details ul {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.timestamps-details li {
+  border: none !important;
+  padding: 2px 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* 复选框样式 */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.checkbox-group label {
+  display: inline;
+  font-size: 13px;
+}

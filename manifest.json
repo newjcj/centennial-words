@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "百年单词",
+  "version": "1.0",
+  "description": "选中单词右键翻译，并记录历史。",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://aip.baidubce.com/*",
+    "https://qianfan.baidubce.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/bainian.png",
+      "48": "icons/bainian.png",
+      "128": "icons/bainian.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/bainian.png",
+    "48": "icons/bainian.png",
+    "128": "icons/bainian.png"
+  }
+}
